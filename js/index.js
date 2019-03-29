@@ -1,15 +1,15 @@
-let request = new XMLHttpRequest();
-let url =
-  "https://data.sfgov.org/api/views/yitu-d5am/rows.json?accessType=DOWNLOAD";
+var request = new XMLHttpRequest();
+var url ="https://data.sfgov.org/api/views/yitu-d5am/rows.json?accessType=DOWNLOAD";
 
 request.onreadystatechange = function() {
   if (this.status === 200 && this.readyState === 4) {
-    let array = JSON.parse(this.responseText);
-    for (let i = 0; i < array.data.length(); i++) {
-      let current = array.data[i];
+
+    var array = JSON.parse(this.responseText);
+    for (var i = 0; i < array.data.length; i++) {
+
+      var current = array.data[i];
       if (current[10] === "Golden Gate Bridge") {
-        document.getElementById("result").innerHTML +=
-          current[8] + current[9] + current[12];
+        document.getElementById("result").innerHTML += current[8] + current[9] + current[12] +"<br>"+"<br>";
       }
     }
   }
